@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/static/figure/favicon.ico" type="image/x-icon">
+  <title>Iris Prediction Form with Sliders and Colored Results</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="mb-4">Iris Prediction</h1>
+
+    <!-- Image Cards -->
+    <div class="d-flex flex-wrap gap-3 justify-content-center mb-5">
+      <div class="card" style="width: 18rem;">
+        <img src="/static/figure/size.png" class="card-img-top" alt="Iris Flower">
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="/static/figure/setosa.png" class="card-img-top" alt="Iris Flower">
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="/static/figure/versicolor.png" class="card-img-top" alt="Iris Flower">
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="/static/figure/virginica.png" class="card-img-top" alt="Iris Flower">
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form id="predictionForm">
+      <div class="row mb-4">
+        <div class="col-md-6 mb-3">
+          <label for="sepal1" class="form-label">
+            Sepal Length (cm): <span id="sepal1Value">7.4</span>
+          </label>
+          <input type="range" class="form-range" min="4" max="8" step="0.1" id="sepal1" name="sepal1" value="7.4" />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="sepal2" class="form-label">
+            Sepal Width (cm): <span id="sepal2Value">2.8</span>
+          </label>
+          <input type="range" class="form-range" min="2" max="5" step="0.1" id="sepal2" name="sepal2" value="2.8" />
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md-6 mb-3">
+          <label for="petal1" class="form-label">
+            Petal Length (cm): <span id="petal1Value">6.1</span>
+          </label>
+          <input type="range" class="form-range" min="1" max="7" step="0.1" id="petal1" name="petal1" value="6.1" />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="petal2" class="form-label">
+            Petal Width (cm): <span id="petal2Value">1.9</span>
+          </label>
+          <input type="range" class="form-range" min="0.1" max="3" step="0.1" id="petal2" name="petal2" value="1.9" />
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Predict</button>
+    </form>
+
+    <!-- Result -->
+    <div id="resultContainer" class="mt-4"></div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/custom.js"></script>
+</body>
+</html>

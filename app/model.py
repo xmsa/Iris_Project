@@ -32,4 +32,9 @@ def load_model(model_name):
     return model
 
 
+def load_models():
+    models = {model_name: load_model(model_name) for model_name in model_classes.keys()}
+    return models
+
+
 Path(f"models").mkdir(exist_ok=True)

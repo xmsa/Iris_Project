@@ -24,14 +24,17 @@ SVM:
   - kernel: linear
     C: 0.2
     gamma: scale
+    probability: True
     random_state: 42
   - kernel: rbf
     C: 0.7
     gamma: scale
+    probability: True
     random_state: 42
   - kernel: poly
     C: 0.3
     degree: 3
+    probability: True
     gamma: scale
     random_state: 42
 

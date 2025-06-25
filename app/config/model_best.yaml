@@ -13,6 +13,7 @@ SVM:
     C: 0.2
     gamma: scale
     random_state: 42
+    probability: True
 
 DecisionTree:
   - criterion: entropy

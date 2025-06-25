@@ -3,9 +3,12 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
+from app.model import load_models
+from app.predict import prediction
 from app.schemas import IrisFeatures, Prediction, PredictionResult
 
 app = FastAPI()
+models = load_models()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
@@ -16,30 +19,12 @@ async def home(request: Request):
 
 
 @app.post("/")
-def predict(data: IrisFeatures):
+def predict(features: IrisFeatures):
     """
     Receives Iris data and returns a dummy prediction.
     """
-    # result = prediction(model, data)
-    svm = PredictionResult(
-        setosa=0.1,
-        versicolor=0.5,
-        virginica=0.4,
-    )
-    DT = PredictionResult(
-        setosa=0.1,
-        versicolor=0.1,
-        virginica=0.8,
-    )
-    RF = PredictionResult(
-        setosa=0.7,
-        versicolor=0.1,
-        virginica=0.2,
-    )
-    reg = PredictionResult(
-        setosa=0.3,
-        versicolor=0.3,
-        virginica=0.3,
-    )
-    results = {"svm": svm, "DT": DT, "RF": RF, "REG": reg}
+    results = {
+        model_name: prediction(features, model=models[model_name])
+        for model_name in models.keys()
+    }
     return Prediction(results)

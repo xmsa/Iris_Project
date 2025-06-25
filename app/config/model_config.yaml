@@ -1,0 +1,84 @@
+KNN:
+  - n_neighbors: 3
+    weights: distance
+  - n_neighbors: 5
+    weights: uniform
+  - n_neighbors: 7
+    weights: uniform
+
+LogisticRegression:
+  - max_iter: 200
+    C: 0.5
+    solver: liblinear
+    random_state: 42
+  - max_iter: 200
+    C: 0.8
+    solver: newton-cholesky
+    random_state: 42
+  - max_iter: 200
+    C: 0.5
+    solver: lbfgs
+    random_state: 42
+
+SVM:
+  - kernel: linear
+    C: 0.2
+    gamma: scale
+    random_state: 42
+  - kernel: rbf
+    C: 0.7
+    gamma: scale
+    random_state: 42
+  - kernel: poly
+    C: 0.3
+    degree: 3
+    gamma: scale
+    random_state: 42
+
+DecisionTree:
+  - criterion: gini
+    max_depth: 7
+    min_samples_split: 3
+    random_state: 42
+  - criterion: entropy
+    max_depth: 7
+    min_samples_split: 5
+    random_state: 42
+
+RandomForest:
+  - n_estimators: 100
+    max_depth: 5
+    criterion: gini
+    random_state: 42
+  - n_estimators: 200
+    max_depth: 10
+    criterion: entropy
+    random_state: 42
+  - n_estimators: 100
+    max_depth: 7
+    criterion: entropy
+    random_state: 42
+
+
+NaiveBayes:
+  - {}
+
+NeuralNetwork:
+  - hidden_layer_sizes: [25,25]
+    activation: relu
+    solver: adam
+    alpha: 0.0001
+    max_iter: 1000
+    random_state: 42
+  - hidden_layer_sizes: [25, 25]
+    activation: tanh
+    solver: sgd
+    alpha: 0.001
+    max_iter: 1001
+    random_state: 42
+  - hidden_layer_sizes: [5,5]
+    activation: relu
+    solver: adam
+    alpha: 0.01
+    max_iter: 1200
+    random_state: 42
